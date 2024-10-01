@@ -49,10 +49,7 @@ public class BooksControllers {
         return booksServices.getBorrowedBooks();
     }
 
-    @GetMapping("/returned")
-    public List<Book> getReturnedBooks(){
-        return
-    }
+
 
 
 

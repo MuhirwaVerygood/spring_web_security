@@ -1,13 +1,10 @@
 
-
-
-
 spring:
   application:
     name: LibraryManagement
   datasource:
-    url: jdbc:postgresql://localhost:5433/library_management_final
-    username: verygood
+    url: jdbc:postgresql://localhost:5432/library_management_final
+    username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
