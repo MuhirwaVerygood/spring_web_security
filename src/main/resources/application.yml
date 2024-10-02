@@ -1,5 +1,6 @@
 
 spring:
+<<<<<<< HEAD
   application:
     name: LibraryManagement
   datasource:
@@ -7,6 +8,14 @@ spring:
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
+=======
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt_security
+    username: verygood
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+>>>>>>> f4f0fc861030007cdca6c8eee72a8a0e97735609
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -16,6 +25,7 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+<<<<<<< HEAD
 
 application:
   security:
@@ -28,3 +38,7 @@ application:
 
 server:
   port: 3600
+=======
+server:
+  port: 3500
+>>>>>>> f4f0fc861030007cdca6c8eee72a8a0e97735609
