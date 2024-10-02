@@ -18,7 +18,7 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
-                echo 'Building Docker image...'
+                echo 'Building Docker image... first step'
                 sh 'docker build -t library-management-app:1.0 .'
             }
         }
