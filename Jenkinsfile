@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'  // Reference the Maven installation configured in Jenkins
+    }
+
     stages {
         stage("Build") {
             steps {
                 echo 'Building the application...'
+                // Use the Maven command
                 sh 'mvn clean package'
             }
         }
@@ -18,7 +23,7 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
-                echo 'Building Docker image... first step'
+                echo 'Building Docker image...'
                 sh 'docker build -t library-management-app:1.0 .'
             }
         }
