@@ -1,24 +1,46 @@
 pipeline {
     agent any
 
-    stages {  
-        stage("build") {
+    stages {
+        stage("Build") {
             steps {
-                echo 'Building application ....'
-                echo "Application built"
+                echo 'Building the application...'
+                sh 'mvn clean package'
             }
         }
 
-        stage("test") {
+        stage("Test") {
             steps {
-                echo 'Testing application .....'
+                echo 'Testing the application...'
+                sh 'mvn test'
             }
         }
 
-        stage("deploy") {
+        stage("Build Docker Image") {
             steps {
-                echo 'Deploying application '
+                echo 'Building Docker image...'
+                sh 'docker build -t library-management-app:1.0 .'
             }
+        }
+
+        stage("Deploy") {
+            steps {
+                echo 'Deploying the application...'
+                sh 'docker run -d -p 3600:3600 --name library-management-app library-management-app:1.0'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up...'
+            sh 'docker system prune -f'
+        }
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
