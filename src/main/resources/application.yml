@@ -27,4 +27,4 @@ application:
 
 
 server:
-  port: 3500
+  port: 3600
