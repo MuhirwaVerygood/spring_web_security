@@ -2,14 +2,13 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'  // Reference the Maven installation configured in Jenkins
+        maven 'Maven'
     }
 
     stages {
         stage("Build") {
             steps {
                 echo 'Building the application...'
-                // Use the Maven command
                 sh 'mvn clean package'
             }
         }
@@ -30,7 +29,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                echo 'Deploying the application...'
+                echo 'Deploying the application.. yes.'
                 sh 'docker run -d -p 3600:3600 --name library-management-app library-management-app:1.0'
             }
         }
